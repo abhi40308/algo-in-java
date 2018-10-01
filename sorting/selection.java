@@ -1,30 +1,43 @@
-import java.util.*;
-public class quickfind{
-	private int[] id;
-	public quickfind(int N){
-		id = new int[N];
-		for (int i=0;i<N; i++)
-			id[i]=i;
-	}
-	public boolean connected (int p,int q)
-	{
-		return id[p]==id[q];
-	}
-	public void union (int p,int q)
-	{
-		int a=id[p];
-		int b=id[q];
-		for (int i=0;i<id.length;i++)
-			if(id[i]==b)
-				id[i]=a;
-	}
-	public static void main(String [] args)
-	{
-		quickfind obj = new quickfind(10);
-		obj.union(2,3);
-		obj.union(5,6);
-		obj.union(1,3);
-		if(obj.connected(2,3))
-			System.out.println("connected");
-	}
-}
+// Java program for implementation of Selection Sort 
+class SelectionSort 
+{ 
+    void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+  
+        // One by one move boundary of unsorted subarray 
+        for (int i = 0; i < n-1; i++) 
+        { 
+            // Find the minimum element in unsorted array 
+            int min_idx = i; 
+            for (int j = i+1; j < n; j++) 
+                if (arr[j] < arr[min_idx]) 
+                    min_idx = j; 
+  
+            // Swap the found minimum element with the first 
+            // element 
+            int temp = arr[min_idx]; 
+            arr[min_idx] = arr[i]; 
+            arr[i] = temp; 
+        } 
+    } 
+  
+    // Prints the array 
+    void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i]+" "); 
+        System.out.println(); 
+    } 
+  
+    // Driver code to test above 
+    public static void main(String args[]) 
+    { 
+        SelectionSort ob = new SelectionSort(); 
+        int arr[] = {64,25,12,22,11}; 
+        ob.sort(arr); 
+        System.out.println("Sorted array"); 
+        ob.printArray(arr); 
+    } 
+} 
